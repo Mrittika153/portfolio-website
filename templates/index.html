@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ owner.name }} — {{ owner.role }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style type = text/css> 
+.fa-linkedin{font-size: 60px;} 
+.fa-github{font-size: 60px;}
+.fa-instagram{font-size: 60px;}
+.fa-facebook{font-size: 60px;}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars" aria-hidden="true"></div>
+<div class="lantern-glow" id="lanternGlow" aria-hidden="true"></div>
+
+<nav class="nav">
+  <span class="nav__mark">MD.</span>
+  <ul class="nav__links">
+    <li><a href="#hero" data-nav="hero">Home</a></li>
+    <li><a href="#about" data-nav="about">About</a></li>
+    <li><a href="#skills" data-nav="skills">Skills</a></li>
+    <li><a href="#project" data-nav="project">Build</a></li>
+    <li><a href="#education" data-nav="education">Education</a></li>
+    <li><a href="#achievements" data-nav="achievements">Achievements</a></li>
+    <li><a href="#contact" data-nav="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<svg class="route-line" id="routeLine" viewBox="0 0 4 3000" preserveAspectRatio="none" aria-hidden="true">
+  <path id="routePath" d="M 2 0 L 2 3000" stroke="#7FD1C0" stroke-width="2" stroke-dasharray="1 14" stroke-linecap="round" fill="none"/>
+</svg>
+
+
+<div class="nova" id="nova" role="button" tabindex="0" aria-label="Ada, your guide. Click for a message.">
+  <div class="nova__bubble" id="novaBubble"><span id="novaBubbleText"></span></div>
+  <svg viewBox="0 0 220 320" width="120" height="175" class="nova__svg">
+    <defs>
+      <radialGradient id="screenGrad" cx="50%" cy="40%" r="65%">
+        <stop offset="0%" stop-color="#CFF6EC"/>
+        <stop offset="55%" stop-color="#7FD1C0"/>
+        <stop offset="100%" stop-color="#2E8F82"/>
+      </radialGradient>
+    </defs>
+
+    
+    <path d="M62 148 C 46 205 46 268 56 315 L 164 315 C 174 268 174 205 158 148 Z" fill="#182047"/>
+    <path d="M62 148 C 46 205 46 268 56 315 L 92 315 C 82 250 86 195 96 148 Z" fill="#121936" opacity="0.65"/>
+    
+    <path d="M100 150 L 110 179 L 120 150 Z" fill="#EDEAE1"/>
+    
+    <path d="M86 149 L 108 177" stroke="#0F1530" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M134 149 L 112 177" stroke="#0F1530" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+   
+    <g class="nova__arm-device">
+      <path d="M150 163 Q 182 183 176 218" stroke="#182047" stroke-width="16" stroke-linecap="round" fill="none"/>
+      <rect x="159" y="211" width="33" height="45" rx="5" fill="#0B0F24" stroke="#2A3363" stroke-width="1.5"/>
+      <rect x="163" y="216" width="25" height="33" rx="2" fill="url(#screenGrad)" class="nova__screen-glow"/>
+    </g>
+
+   
+    <g class="nova__head">
+      <path d="M85 95 C 85 60 100 40 110 40 C 120 40 135 60 135 95 C 135 122 122 138 110 138 C 98 138 85 122 85 95 Z" fill="#E6B18C"/>
+
+      
+      <path d="M82 88 C 79 106 81 119 89 127 L 94 113 C 90 104 88 96 88 88 Z" fill="#2E1B12"/>
+      <path d="M138 88 C 141 106 139 119 131 127 L 126 113 C 130 104 132 96 132 88 Z" fill="#2E1B12"/>
+      <path d="M83 90 C 80 54 95 27 110 27 C 125 27 140 54 137 90 C 131 64 122 54 110 54 C 98 54 89 64 83 90 Z" fill="#3A2418"/>
+      <path d="M110 29 L 110 55" stroke="#2E1B12" stroke-width="1.5"/>
+      <ellipse cx="110" cy="25" rx="15" ry="10" fill="#3A2418"/>
+      <ellipse cx="110" cy="25" rx="8" ry="5.5" fill="#2E1B12" opacity="0.55"/>
+
+
+      <g class="nova__eye nova__eye--left">
+        <ellipse cx="99" cy="97" rx="7" ry="8" fill="#fff"/>
+        <circle class="nova__pupil" cx="99" cy="97" r="3.4" fill="#241338"/>
+      </g>
+      <g class="nova__eye nova__eye--right">
+        <ellipse cx="121" cy="97" rx="7" ry="8" fill="#fff"/>
+        <circle class="nova__pupil" cx="121" cy="97" r="3.4" fill="#241338"/>
+      </g>
+      <rect class="nova__eyelid nova__eyelid--left" x="91" y="89" width="16" height="0" fill="#E6B18C"/>
+      <rect class="nova__eyelid nova__eyelid--right" x="113" y="89" width="16" height="0" fill="#E6B18C"/>
+
+
+      <path d="M92 87 Q99 83 106 87" stroke="#2E1B12" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M114 87 Q121 83 128 87" stroke="#2E1B12" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+   
+      <path class="nova__mouth" d="M103 114 Q110 119 117 114" stroke="#8A4B4B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="93" cy="106" rx="5" ry="3" fill="#E8927A" opacity="0.35"/>
+      <ellipse cx="127" cy="106" rx="5" ry="3" fill="#E8927A" opacity="0.35"/>
+    </g>
+
+   
+    <g class="nova__arm-wave">
+      <path d="M70 163 Q 40 173 38 208" stroke="#182047" stroke-width="17" stroke-linecap="round" fill="none"/>
+      <circle cx="37" cy="210" r="9" fill="#E6B18C"/>
+    </g>
+  </svg>
+</div>
+
+<main>
+
+  <section class="section hero" id="hero" data-context="hero">
+    <div class="hero__inner">
+      <div class="hero__left-branding">
+      <p class="hero__eyebrow-alt">Portfolio</p>
+    </div>
+    <div class = hero__content>
+      <h1 class="hero__title">
+        <span id="heroTyped"></span><span class="hero__cursor" aria-hidden="true">|</span>
+      </h1>
+      <p class="hero__tagline">{{ owner.tagline }}</p>
+      <div class="hero__meta">
+        <span>{{ owner.role }}</span>
+        <span class="dot-sep">•</span>
+        <span>{{ owner.location }}</span>
+      </div> 
+    </div>
+      <div class="hero__photo">
+        <img src = "{{ url_for('static', filename='image/Raiprof.jpeg') }}" alt="My profile photo">
+      </div>
+    </div>
+  </section>
+
+ 
+  <section class="section stop stop--right" id="about" data-context="about">
+    <div class="stop__card">
+      <h2 class="section-title">About</h2>
+      <p>
+        I'm a Computer Science Engineering graduate with a solid grounding in C++,
+        data structures &amp; algorithms, object-oriented programming, SQL, and web
+        technologies — and a growing focus on applied AI: LLMs, Retrieval-Augmented
+        Generation, and the backend systems that make them actually usable.
+      </p>
+      <p>
+        My flagship project so far is an AI-powered question generator and online
+        assessment system, built end-to-end with Flask, RAG, and ChromaDB. I like
+        problems that sit at the intersection of backend engineering and applied AI —
+        and when I'm not debugging one, I'm usually drawing, which might explain why
+        this page is illustrated rather than stock photography.
+      </p>
+      <div class="about__skills-panel">
+      <h3 class="skills-panel__title">Core Stack</h3>
+      <div class="skills-panel__grid">
+        <span class="skill-badge">Python / Flask</span>
+        <span class="skill-badge">LLMs &amp; RAG</span>
+        <span class="skill-badge">ChromaDB</span>
+        <span class="skill-badge">C++ / DSA</span>
+        <span class="skill-badge">SQL</span>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="section skills" id="skills" data-context="skills">
+    <h2 class="section-title section-title--center">Skill graph</h2>
+    <p class="section-sub">Tap a node to see how it's used.</p>
+    <div class="skymap" id="skymap">
+      {% for s in skills %}
+      <button class="star" data-level="{{ s.level }}" data-label="{{ s.label }}" data-group="{{ s.group }}" style="left: {{ s.x }}%; top: {{ s.y }}%;">
+        <span class="star__dot"></span>
+        <span class="star__label">{{ s.label }}</span>
+      </button>
+      {% endfor %}
+    </div>
+    <div class="skill-readout" id="skillReadout">
+      <span id="skillReadoutText">Pick a node from the graph above.</span>
+      <div class="skill-readout__bar"><div class="skill-readout__fill" id="skillReadoutFill"></div></div>
+    </div>
+  </section>
+
+
+  <section class="section project" id="project" data-context="project">
+    <div class="project-head">
+      <span class="project-head__tag">{{ project.tag }}</span>
+      <h2 class="section-title">{{ project.name }}</h2>
+      <p class="section-sub project-head__summary">{{ project.summary }}</p>
+      <ul class="project-stack">
+        {% for tech in project.stack %}<li>{{ tech }}</li>{% endfor %}
+      </ul>
+    </div>
+
+    <div class="project-stats">
+      {% for s in project.stats %}
+      <div class="project-stats__item">
+        <span class="project-stats__value">{{ s.value }}</span>
+        <span class="project-stats__label">{{ s.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="feature-grid">
+      {% for f in project.features %}
+      <article class="feature-card">
+        <span class="feature-card__index">{{ "%02d"|format(loop.index) }}</span>
+        <h3>{{ f.title }}</h3>
+        <p>{{ f.detail }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+
+  <section class="section timeline" id="education" data-context="education">
+    <h2 class="section-title">Education</h2>
+    <ol class="route">
+      {% for e in education %}
+      <li class="route__stop">
+        <span class="route__year">{{ e.year }} · {{ e.place }}</span>
+        <span class="route__title">{{ e.title }}</span>
+        <span class="route__org">{{ e.org }} — {{ e.detail }}</span>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+ 
+ 
+<section class="section achievements" id="achievements" data-context="achievements">
+  <h2 class="section-title">Achievements</h2>
+
+  <div class="achieve-grid">
+    {% for a in achievements %}
+    <div
+      class="achieve-card"
+      data-certificate="{{ url_for('static', filename='certificates/' ~ a.certificate) }}"
+      tabindex="0"
+      role="button"
+      aria-label="View certificate for {{ a.title }}"
+      aria-haspopup="dialog"
+    >
+      <div class="achieve-card__inner">
+        <div class="achieve-card__front">
+          <h3>{{ a.title }}</h3>
+          <p>{{ a.org }}</p>
+          <span class="achieve-card__year">{{ a.year }}</span>
+          <span class="view-certificate">View Certificate ↗</span>
+        </div>
+
+        <div class="achieve-card__back" aria-hidden="true">
+          <span class="certificate-icon">✦</span>
+          <h3>Certificate</h3>
+          <p>Click to view in full size</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <p class="section-sub languages-line">
+    Languages —
+    {% for l in languages %}
+      {{ l.name }} <em>({{ l.level }})</em>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+  </p>
+</section>
+
+<div
+  class="certificate-modal"
+  id="certificateModal"
+  aria-hidden="true"
+  role="presentation"
+>
+  <div
+    class="certificate-content"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Certificate preview"
+    tabindex="-1"
+  >
+    <button
+      class="close-modal"
+      id="closeCertificate"
+      type="button"
+      aria-label="Close certificate"
+    >&times;</button>
+
+    <img
+      id="certificateImage"
+      src=""
+      alt="Selected achievement certificate"
+    >
+  </div>
+</div>
+
+
+
+  <section class="section contact" id="contact" data-context="contact">
+    <h2 class="section-title">Get in touch</h2>
+    <p class="section-sub">Fill this in, or reach out directly — either way it lands in a real inbox.</p>
+
+    <div class="contact-grid">
+      <ul class="contact-info">
+        <li><a href="mailto:{{ owner.email }}">{{ owner.email }}</a></li>
+        <li><a href="tel:{{ owner.phone }}">{{ owner.phone }}</a></li>
+        <li><a href="https://linkedin.com/in/mrittika-dakshi-3b394a368" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a></li>
+        <li><a href="https://github.com/Mrittika153" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a></li>
+        <li><a href="https://instagram.com/dakshimrittika?srtk=MWV3bDFlbmpxY3RwbQ%3D%3D" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="https://www.facebook.com/share/1DmHdLj1m9/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a></li>
+
+      </ul>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <label>
+          Name
+          <input type="text" name="name" id="cf-name" autocomplete="name">
+          <span class="field-error" id="err-name"></span>
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" id="cf-email" autocomplete="email">
+          <span class="field-error" id="err-email"></span>
+        </label>
+        <label>
+          Message
+          <textarea name="message" id="cf-message" rows="5"></textarea>
+          <span class="field-error" id="err-message"></span>
+        </label>
+        <button type="submit" class="btn btn--primary" id="cf-submit">Send message</button>
+        <p class="contact-form__status" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>{{ owner.name }} — built with Python, Flask, and a fair amount of coffee.</span>
+    <p class="footer__text">&copy; 2026 All rights reserved.</p>
+  </footer>
+
+</main>
+
+<script src="{{ url_for('static', filename='js/character.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
